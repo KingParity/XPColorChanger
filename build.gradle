@@ -13,8 +13,8 @@ apply plugin: 'net.minecraftforge.gradle'
 apply plugin: 'eclipse'
 apply plugin: 'maven-publish'
 
-version = '1.0'
-group = 'com.kingparity.xpcc' // http://maven.apache.org/guides/mini/guide-naming-conventions.html
+version = '1.0.1-1.16.4'
+group = 'com.kingparity' // http://maven.apache.org/guides/mini/guide-naming-conventions.html
 archivesBaseName = 'XPColorChanger'
 
 sourceCompatibility = targetCompatibility = compileJava.sourceCompatibility = compileJava.targetCompatibility = '1.8' // Need this here so eclipse task generates correctly.
@@ -120,11 +120,11 @@ dependencies {
 jar {
     manifest {
         attributes([
-            "Specification-Title": "xpcc",
+            "Specification-Title": "XP Color Changer",
             "Specification-Vendor": "KingParity",
             "Specification-Version": "1", // We are version 1 of ourselves
-            "Implementation-Title": project.name,
-            "Implementation-Version": "${version}",
+            "Implementation-Title": "XP Color Changer",
+            "Implementation-Version": project.version,
             "Implementation-Vendor" :"KingParity",
             "Implementation-Timestamp": new Date().format("yyyy-MM-dd'T'HH:mm:ssZ")
         ])
