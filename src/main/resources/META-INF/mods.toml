@@ -33,7 +33,7 @@ displayName="XP Color Changer" #mandatory
 # A text field displayed in the mod UI
 authors="KingParity" #optional
 # The description text for the mod (multi line!) (#mandatory)
-description="Muffin is cute"
+description="Allows the color of the XP number to be changed"
 # A dependency - use the . to indicate dependency for a specific modid. Dependencies are optional.
 [[dependencies.xpcc]] #optional
     # the modid of the dependency

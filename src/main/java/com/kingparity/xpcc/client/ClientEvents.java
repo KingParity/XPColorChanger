@@ -33,13 +33,13 @@ public class ClientEvents
                 {
                     RenderSystem.color4f(1.0F, 1.0F, 1.0F, 1.0F);
                     gui.setBlitOffset(-90);
-                    renderExperience(scaledWidth, matrixStack, event, mc, scaledHeight, gui);
+                    renderExperience(scaledWidth, scaledHeight, matrixStack, mc, gui);
                 }
             }
         }
     }
     
-    protected void renderExperience(int scaledWidth, MatrixStack matrixStack, RenderGameOverlayEvent event, Minecraft mc, int scaledHeight, IngameGui gui)
+    public void renderExperience(int scaledWidth, int scaledHeight, MatrixStack matrixStack, Minecraft mc, IngameGui gui)
     {
         Minecraft.getInstance().getTextureManager().bindTexture(AbstractGui.GUI_ICONS_LOCATION);
         RenderSystem.color4f(1.0F, 1.0F, 1.0F, 1.0F);
@@ -47,26 +47,25 @@ public class ClientEvents
         
         if(mc.playerController.gameIsSurvivalOrAdventure())
         {
-            this.renderExperience(matrixStack, scaledWidth / 2 - 91, mc, scaledHeight, scaledWidth, gui);
+            this.renderExperience(scaledWidth, scaledHeight, scaledWidth / 2 - 91, matrixStack, mc, gui);
         }
         RenderSystem.enableBlend();
         RenderSystem.color4f(1.0F, 1.0F, 1.0F, 1.0F);
     }
     
-    public void renderExperience(MatrixStack matrixStack, int p_238454_2_, Minecraft mc, int scaledHeight, int scaledWidth, IngameGui gui)
+    public void renderExperience(int scaledWidth, int scaledHeight, int x, MatrixStack matrixStack, Minecraft mc, IngameGui gui)
     {
         mc.getProfiler().startSection("expBar");
         mc.getTextureManager().bindTexture(AbstractGui.GUI_ICONS_LOCATION);
         int i = mc.player.xpBarCap();
         if(i > 0)
         {
-            int j = 182;
             int k = (int)(mc.player.experience * 183.0F);
-            int l = scaledHeight - 32 + 3;
-            gui.blit(matrixStack, p_238454_2_, l, 0, 64, 182, 5);
+            int y = scaledHeight - 32 + 3;
+            gui.blit(matrixStack, x, y, 0, 64, 182, 5);
             if(k > 0)
             {
-                gui.blit(matrixStack, p_238454_2_, l, 0, 69, k, 5);
+                gui.blit(matrixStack, x, y, 0, 69, k, 5);
             }
         }
         
